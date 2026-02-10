@@ -16,7 +16,7 @@ jobs:
         run: python setup.py sdist
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: sdist
           path: ./dist/*
@@ -52,7 +52,7 @@ jobs:
             *-macosx_universal2:arm64
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: wheel-${{ matrix.pyver }}-${{ matrix.os }}
           path: ./wheelhouse/*.whl
@@ -81,7 +81,7 @@ jobs:
           CIBW_TEST_COMMAND: pytest --color=yes -m 'not embedded and not skip_on_qemu' {project}/tests
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: wheel-${{ matrix.pyver }}-${{ matrix.arch }}
           path: ./wheelhouse/*.whl
@@ -113,7 +113,7 @@ jobs:
             pp*-macosx_*
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: wheels-pp-${{ matrix.os }}
           path: ./wheelhouse/*.whl
@@ -137,7 +137,7 @@ jobs:
       # Tests mostly fail because of some confusion with the python interpreter
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: wheels-pp-cross
           path: ./wheelhouse/*.whl
@@ -153,7 +153,7 @@ jobs:
       - build-cross-wheel-pypy
     steps:
       - name: Merge Artifacts
-        uses: actions/upload-artifact/merge@v4
+        uses: actions/upload-artifact/merge@v6
         with:
           name: setproctitle-artifacts
           delete-merged: true
