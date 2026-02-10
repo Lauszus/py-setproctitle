@@ -7,7 +7,3 @@ enable = [
     "pypy",
 ]
 test-extras = ["test"]
-
-[[tool.cibuildwheel.overrides]]
-select = "*riscv64*"
-before-all = ["dnf install -y --setopt=install_weak_deps=False procps-ng"]
