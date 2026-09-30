@@ -2,6 +2,7 @@
 name: Packages
 on:
   workflow_dispatch:
+  push:
 
 jobs:
 
